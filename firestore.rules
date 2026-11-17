@@ -1,0 +1,133 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUserProfile(data, userId) {
+      return data.userId is string &&
+             data.userId == userId &&
+             data.displayName is string &&
+             data.displayName.size() >= 1 &&
+             data.displayName.size() <= 50 &&
+             data.matchesPlayed is int &&
+             data.matchesPlayed >= 0 &&
+             data.matchesWon is int &&
+             data.matchesWon >= 0 &&
+             data.matchesWon <= data.matchesPlayed &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             data.updatedAt is timestamp &&
+             data.updatedAt <= request.time;
+    }
+
+    function isValidGameRoom(data) {
+      return data.roomCode is string &&
+             data.roomCode.size() >= 4 &&
+             data.roomCode.size() <= 12 &&
+             data.roomCode.matches('^[A-Z0-9]+$') &&
+             data.hostUid is string &&
+             data.hostUid.size() >= 1 &&
+             data.hostUid.size() <= 128 &&
+             data.hostName is string &&
+             data.hostName.size() >= 1 &&
+             data.hostName.size() <= 50 &&
+             data.title is string &&
+             data.title.size() >= 1 &&
+             data.title.size() <= 60 &&
+             data.status in ['waiting', 'playing', 'finished'] &&
+             data.maxPlayers is int &&
+             data.maxPlayers >= 2 &&
+             data.maxPlayers <= 4 &&
+             data.playerUids is list &&
+             data.playerUids.size() >= 1 &&
+             data.playerUids.size() <= data.maxPlayers &&
+             data.playerUids[0] is string &&
+             data.isPublic is bool &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             data.updatedAt is timestamp &&
+             data.updatedAt <= request.time;
+    }
+
+    match /users/{userId} {
+      allow get, list: if isSignedIn() && request.auth.uid == userId;
+
+      allow create: if isSignedIn() &&
+                       isValidId(userId) &&
+                       request.auth.uid == userId &&
+                       incoming().keys().hasAll(['userId', 'displayName', 'matchesPlayed', 'matchesWon', 'createdAt', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['userId', 'displayName', 'matchesPlayed', 'matchesWon', 'createdAt', 'updatedAt']) &&
+                       isValidUserProfile(incoming(), userId);
+
+      allow update: if isSignedIn() &&
+                       isValidId(userId) &&
+                       request.auth.uid == userId &&
+                       isValidUserProfile(incoming(), userId) &&
+                       incoming().userId == existing().userId &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'matchesPlayed', 'matchesWon', 'updatedAt']);
+
+      allow delete: if isSignedIn() && isValidId(userId) && request.auth.uid == userId;
+    }
+
+    match /game_rooms/{roomId} {
+      allow get: if isSignedIn() &&
+                    isValidId(roomId) &&
+                    (existing().isPublic == true ||
+                     request.auth.uid in existing().playerUids ||
+                     existing().hostUid == request.auth.uid);
+
+      allow list: if isSignedIn() &&
+                     (resource.data.isPublic == true ||
+                      request.auth.uid in resource.data.playerUids ||
+                      resource.data.hostUid == request.auth.uid);
+
+      allow create: if isSignedIn() &&
+                       isValidId(roomId) &&
+                       incoming().hostUid == request.auth.uid &&
+                       request.auth.uid in incoming().playerUids &&
+                       incoming().status == 'waiting' &&
+                       incoming().keys().hasAll(['roomCode', 'hostUid', 'hostName', 'title', 'status', 'maxPlayers', 'playerUids', 'isPublic', 'createdAt', 'updatedAt']) &&
+                       incoming().keys().hasOnly(['roomCode', 'hostUid', 'hostName', 'title', 'status', 'maxPlayers', 'playerUids', 'isPublic', 'createdAt', 'updatedAt']) &&
+                       isValidGameRoom(incoming());
+
+      allow update: if isSignedIn() &&
+                       isValidId(roomId) &&
+                       existing().status != 'finished' &&
+                       isValidGameRoom(incoming()) &&
+                       incoming().hostUid == existing().hostUid &&
+                       incoming().roomCode == existing().roomCode &&
+                       incoming().createdAt == existing().createdAt &&
+                       (
+                         // Action 1: Host updates room metadata, status, or player roster
+                         (existing().hostUid == request.auth.uid &&
+                          incoming().diff(existing()).affectedKeys().hasOnly(['title', 'status', 'isPublic', 'maxPlayers', 'playerUids', 'updatedAt'])) ||
+                         // Action 2: Eligible participant joins or leaves while waiting
+                         (existing().status == 'waiting' &&
+                          (existing().isPublic == true || request.auth.uid in existing().playerUids) &&
+                          incoming().diff(existing()).affectedKeys().hasOnly(['playerUids', 'updatedAt']))
+                       );
+
+      allow delete: if isSignedIn() && isValidId(roomId) && existing().hostUid == request.auth.uid;
+    }
+  }
+}

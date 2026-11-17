@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Authenticated player profile stored in Firestore for multiplayer identity and cloud stats.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the player."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Player display name."
+        },
+        "matchesPlayed": {
+          "type": "integer",
+          "description": "Total completed matches."
+        },
+        "matchesWon": {
+          "type": "integer",
+          "description": "Total won matches."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp written via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp written via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["userId", "displayName", "matchesPlayed", "matchesWon", "createdAt", "updatedAt"]
+    },
+    "GameRoom": {
+      "title": "GameRoom",
+      "description": "Online multiplayer card game room lobby metadata.",
+      "type": "object",
+      "properties": {
+        "roomCode": {
+          "type": "string",
+          "description": "Short uppercase alphanumeric room invite code."
+        },
+        "hostUid": {
+          "type": "string",
+          "description": "Firebase Auth UID of the room host."
+        },
+        "hostName": {
+          "type": "string",
+          "description": "Display name of the room host."
+        },
+        "title": {
+          "type": "string",
+          "description": "Bengali title of the card room."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["waiting", "playing", "finished"],
+          "description": "Current lifecycle status of the room."
+        },
+        "maxPlayers": {
+          "type": "integer",
+          "description": "Maximum number of seats (2 to 4)."
+        },
+        "playerUids": {
+          "type": "array",
+          "description": "List of participant UIDs currently seated in the room."
+        },
+        "isPublic": {
+          "type": "boolean",
+          "description": "Whether the room appears in the public lobby list."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp written via FieldValue.serverTimestamp()."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp written via FieldValue.serverTimestamp()."
+        }
+      },
+      "required": ["roomCode", "hostUid", "hostName", "title", "status", "maxPlayers", "playerUids", "isPublic", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Owner-scoped player profile documents."
+    },
+    "/game_rooms/{roomId}": {
+      "schema": { "$ref": "#/entities/GameRoom" },
+      "description": "Online multiplayer game room documents."
+    }
+  }
+}

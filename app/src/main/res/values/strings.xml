@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Name: রঙমহল -->
+    <string name="app_name">রঙমহল</string>
+    <string name="app_subtitle">নকশা, রঙ আর চালের বাংলা তাস খেলা</string>
+    <string name="app_edition_badge">১.০ সংস্করণ</string>
+
+    <!-- Navigation Destinations -->
+    <string name="nav_home">মেনু</string>
+    <string name="nav_lobby">অনলাইন</string>
+    <string name="nav_profile">প্রোফাইল</string>
+    <string name="nav_rules">নিয়মাবলি</string>
+    <string name="nav_settings">সেটিংস</string>
+
+    <!-- Splash Screen -->
+    <string name="splash_tagline">বাংলার ঐতিহ্যবাহী নকশা ও আধুনিক তাসের লড়াই</string>
+    <string name="splash_loading">আসর সাজানো হচ্ছে…</string>
+
+    <!-- Firebase Realtime Database URL -->
+    <string name="firebase_rtdb_url" translatable="false">https://gen-lang-client-0257961535-default-rtdb.firebaseio.com</string>
+
+    <!-- Auth & Guest Mode Screen -->
+    <string name="auth_headline">রঙমহল তাসের আসরে স্বাগতম</string>
+    <string name="auth_subheadline">অনলাইন মাল্টিপ্লেয়ার, রুম কোড ও লিডারবোর্ডের জন্য গুগল দিয়ে প্রবেশ করুন, অথবা অতিথি হিসেবে অফলাইনে খেলুন।</string>
+    <string name="auth_google_button">গুগল দিয়ে প্রবেশ করুন</string>
+    <string name="auth_guest_divider">অথবা ইন্টারনেট ছাড়াই খেলুন</string>
+    <string name="auth_guest_name_label">অতিথি খেলোয়াড়ের নাম</string>
+    <string name="auth_guest_button">অতিথি হিসেবে অফলাইনে খেলুন</string>
+    <string name="auth_checking_session">অ্যাকাউন্ট যাচাই করা হচ্ছে…</string>
+    <string name="auth_error_missing_client">গুগল সাইন-ইন কনফিগারেশন পাওয়া যায়নি।</string>
+    <string name="auth_error_generic">প্রবেশ করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।</string>
+    <string name="auth_sign_out">প্রস্থান করুন</string>
+    <string name="auth_guest_badge">অতিথি মোড (অফলাইন)</string>
+    <string name="auth_link_google_button">অনলাইনের জন্য গুগল যুক্ত করুন</string>
+    <string name="auth_switch_session">অ্যাকাউন্ট / অতিথি পরিবর্তন</string>
+
+    <!-- Main Menu (Home Screen) -->
+    <string name="home_greeting_prefix">স্বাগতম,</string>
+    <string name="home_hero_desc">রঙমহল বাংলা তাস খেলার টেবিল ও নকশা</string>
+    <string name="menu_play_now">খেলা শুরু করুন</string>
+    <string name="menu_play_now_desc">খেলার ধরন ও খেলোয়াড় বেছে নিয়ে টেবিলে বসুন</string>
+    <string name="menu_online_lobby">অনলাইন আসর</string>
+    <string name="menu_online_lobby_desc">ফায়ারবেস লাইভ রুম তৈরি করুন ও বন্ধুদের আমন্ত্রণ জানান</string>
+    <string name="menu_profile">খেলোয়াড় প্রোফাইল</string>
+    <string name="menu_profile_desc">অবতার পরিবর্তন, জয়-পরাজয় ও খেলার ইতিহাস</string>
+    <string name="menu_rules">তাস ও নিয়মাবলি</string>
+    <string name="menu_rules_desc">সংখ্যা কার্ড, অ্যাকশন কার্ড ও খেলার কৌশল</string>
+    <string name="menu_settings">পছন্দ ও সেটিংস</string>
+    <string name="home_local_stats_title">সংক্ষিপ্ত পরিসংখ্যান</string>
+    <string name="home_stats_matches">মোট খেলা</string>
+    <string name="home_stats_wins">জয়</string>
+    <string name="home_stats_empty">এখনো কোনো খেলা শেষ হয়নি। নতুন আসর শুরু করুন!</string>
+    <string name="home_seed_sample_match">নমুনা রেকর্ড যোগ</string>
+    <string name="home_clear_matches">মুছুন</string>
+
+    <!-- Game Mode Selection -->
+    <string name="mode_title">খেলার ধরন নির্বাচন</string>
+    <string name="mode_subtitle">আপনার পছন্দের গতি ও নিয়ম বেছে নিন</string>
+    <string name="mode_classic_title">ধ্রুপদী রঙমহল</string>
+    <string name="mode_classic_desc">৭টি করে তাস, সব অ্যাকশন কার্ডসহ পূর্ণাঙ্গ আসর</string>
+    <string name="mode_blitz_title">ঝটপট চাল (৫ তাস)</string>
+    <string name="mode_blitz_desc">দ্রুতগতির সংক্ষিপ্ত লড়াই, ৫টি তাস দিয়ে শুরু</string>
+    <string name="mode_tactical_title">নকশা চ্যালেঞ্জ</string>
+    <string name="mode_tactical_desc">কৌশলী বট প্রতিপক্ষ ও বাড়তি অ্যাকশন চালের চাপ</string>
+    <string name="mode_online_title">অনলাইন মাল্টিপ্লেয়ার</string>
+    <string name="mode_online_desc">রুম কোড শেয়ার করে সরাসরি অনলাইন আসরে যোগ দিন</string>
+    <string name="mode_continue">পরবর্তী ধাপ: খেলোয়াড় নির্বাচন</string>
+
+    <!-- Player Selection -->
+    <string name="player_sel_title">খেলোয়াড় ও অবতার নির্বাচন</string>
+    <string name="player_sel_subtitle">আসনের সংখ্যা, আপনার নাম ও প্রতীকী অবতার বেছে নিন</string>
+    <string name="player_sel_count_label">মোট খেলোয়াড়</string>
+    <string name="player_sel_name_label">আপনার নাম</string>
+    <string name="player_sel_difficulty_label">বটের দক্ষতা (AI স্তর)</string>
+    <string name="ai_diff_easy">সহজ</string>
+    <string name="ai_diff_medium">মাঝারি</string>
+    <string name="ai_diff_hard">কঠিন</string>
+    <string name="player_sel_avatar_label">আপনার অবতার বাছাই করুন</string>
+    <string name="player_sel_opponents_label">টেবিলের প্রতিপক্ষ দল</string>
+    <string name="player_sel_start_match">আসরে প্রবেশ করুন</string>
+
+    <!-- Online Lobby & Leaderboard Screen -->
+    <string name="lobby_title">অনলাইন মাল্টিপ্লেয়ার আসর</string>
+    <string name="lobby_subtitle">রিয়েলটাইম ডেটাবেস ও ক্লাউড ফাংশন দ্বারা সুরক্ষিত</string>
+    <string name="lobby_tab_rooms">রুম ও আসর</string>
+    <string name="lobby_tab_leaderboard">লিডারবোর্ড</string>
+    <string name="lobby_offline_banner">ইন্টারনেট সংযোগ নেই। অফলাইন এআই মোড সম্পূর্ণ সচল আছে।</string>
+    <string name="lobby_offline_play_cta">অফলাইনে এআই-এর সাথে খেলুন</string>
+    <string name="lobby_guest_gate_title">অনলাইন আসরের জন্য গুগল সাইন-ইন প্রয়োজন</string>
+    <string name="lobby_guest_gate_desc">আপনি বর্তমানে অতিথি মোডে অফলাইনে আছেন। প্রাইভেট রুম তৈরি, কোড দিয়ে যোগদান ও গ্লোবাল লিডারবোর্ডের জন্য গুগল অ্যাকাউন্ট যুক্ত করুন।</string>
+    <string name="lobby_join_code_title">রুম কোড দিয়ে যোগ দিন</string>
+    <string name="lobby_join_code_hint">৬ অক্ষরের কোড (যেমন: AB12CD)</string>
+    <string name="lobby_join_code_button">কোড দিয়ে ঢুকুন</string>
+    <string name="lobby_create_room">নতুন রুম তৈরি করুন</string>
+    <string name="lobby_room_title_label">আসরের নাম</string>
+    <string name="lobby_room_title_hint">যেমন: সান্ধ্য রঙমহল আড্ডা</string>
+    <string name="lobby_private_room_toggle">প্রাইভেট রুম (শুধু কোড দিয়ে প্রবেশ)</string>
+    <string name="lobby_create_submit">রুম খুলুন</string>
+    <string name="lobby_public_rooms">উন্মুক্ত আসরসমূহ</string>
+    <string name="lobby_empty_rooms">কোনো উন্মুক্ত রুম পাওয়া যায়নি। প্রথম রুমটি তৈরি করুন বা কোড দিয়ে ঢুকুন।</string>
+    <string name="lobby_room_status_waiting">অপেক্ষমাণ</string>
+    <string name="lobby_room_status_playing">চলমান</string>
+    <string name="lobby_room_status_finished">সমাপ্ত</string>
+    <string name="lobby_room_players_suffix">জন খেলোয়াড়</string>
+    <string name="lobby_delete_room">রুম বাতিল</string>
+    <string name="lobby_leaderboard_title">শীর্ষ খেলোয়াড় লিডারবোর্ড</string>
+    <string name="lobby_leaderboard_empty">এখনো কোনো অনলাইন ম্যাচ শেষ হয়নি।</string>
+
+    <!-- Online Waiting Room & Live Match -->
+    <string name="online_room_code_label">আমন্ত্রণ কোড</string>
+    <string name="online_room_copy_code">কোড কপি করুন</string>
+    <string name="online_room_copied">কোড কপি হয়েছে!</string>
+    <string name="online_room_private_badge">প্রাইভেট রুম</string>
+    <string name="online_room_public_badge">উন্মুক্ত রুম</string>
+    <string name="online_room_host_badge">আয়োজক</string>
+    <string name="online_room_ready_badge">প্রস্তুত ✓</string>
+    <string name="online_room_waiting_badge">অপেক্ষায়</string>
+    <string name="online_room_connected">অনলাইন</string>
+    <string name="online_room_disconnected">বিচ্ছিন্ন</string>
+    <string name="online_room_ready_cta">আমি প্রস্তুত</string>
+    <string name="online_room_unready_cta">প্রস্তুতি বাতিল</string>
+    <string name="online_room_start_cta">আসর শুরু করুন</string>
+    <string name="online_room_leave_cta">রুম ছাড়ুন</string>
+    <string name="online_room_need_players">শুরু করতে কমপক্ষে ২ জন খেলোয়াড় ও সবার প্রস্তুতি প্রয়োজন।</string>
+    <string name="online_board_reconnecting">সার্ভারের সাথে পুনঃসংযোগ করা হচ্ছে…</string>
+    <string name="online_board_result_title">সার্ভার-যাচাইকৃত আসর ফলাফল</string>
+    <string name="online_board_back_lobby">লবিতে ফিরুন</string>
+
+    <!-- Game Board Screen -->
+    <string name="board_title">রঙমহল বোর্ড</string>
+    <string name="board_active_color">সক্রিয় রঙ</string>
+    <string name="board_draw_pile">তাস টানুন</string>
+    <string name="board_draw_button">কার্ড তুলুন</string>
+    <string name="board_declare_last_card">শেষ তাস!</string>
+    <string name="board_declared_badge">ঘোষিত ✓</string>
+    <string name="board_direction_clockwise">ডানাবর্তী</string>
+    <string name="board_direction_counter">বামাবর্তী</string>
+    <string name="board_timer_seconds_suffix">সে.</string>
+    <string name="board_pause_action">বিরতি</string>
+    <string name="board_pause_title">খেলা বিরতি</string>
+    <string name="board_pause_subtitle">সময় ও এআই চাল সাময়িকভাবে স্থগিত আছে</string>
+    <string name="board_pause_resume">খেলা চালিয়ে যান</string>
+    <string name="board_pause_restart">নতুন আসর শুরু</string>
+    <string name="board_pause_exit">মেনুতে ফিরুন</string>
+    <string name="board_your_turn">আপনার চাল — মিলিয়ে তাস ফেলুন</string>
+    <string name="board_bot_turn">প্রতিপক্ষ চাল দিচ্ছে…</string>
+    <string name="board_pick_wild_color">পরবর্তী সক্রিয় রঙ বেছে নিন</string>
+    <string name="board_pick_swap_target">হাতবদল: কার সাথে তাস বদলাবেন?</string>
+    <string name="board_mystery_title">রহস্য কার্ডের ফলাফল</string>
+    <string name="board_mystery_ok">বুঝেছি</string>
+    <string name="board_winner_banner_action">ফলাফল দেখুন</string>
+    <string name="board_back_confirm">বের হন</string>
+    <string name="board_cards_left_suffix">টি তাস</string>
+
+    <!-- Rules Screen -->
+    <string name="rules_title">রঙমহল — কার্ড নকশা ও নিয়মাবলি</string>
+    <string name="rules_subtitle">চারটি মৌলিক বাংলা রঙ, সংখ্যা কার্ড ও অ্যাকশন কার্ড</string>
+    <string name="rules_suits_title">চারটি মৌলিক রঙ ও প্রতীক</string>
+    <string name="rules_number_cards_title">সংখ্যা কার্ড (০–৯)</string>
+    <string name="rules_action_cards_title">স্ট্যান্ডার্ড অ্যাকশন কার্ড</string>
+    <string name="rules_special_cards_title">মৌলিক বিশেষ কার্ড</string>
+    <string name="rules_card_back_title">কার্ডের পেছনের আলপনা নকশা</string>
+    <string name="rules_how_to_play_title">খেলার মূল নিয়ম</string>
+    <string name="rules_how_to_play_body">১. প্রতিটি খেলোয়াড় নির্ধারিত তাস নিয়ে খেলা শুরু করে।\n২. মাঝের তাসের রঙ অথবা সংখ্যা/প্রতীকের সাথে মিলিয়ে নিজের হাত থেকে একটি তাস ফেলুন।\n৩. মিল না থাকলে তাসের স্তূপ থেকে একটি তাস টানুন।\n৪. অ্যাকশন কার্ড দিয়ে প্রতিপক্ষকে থামান, দিক ঘোরান বা বাড়তি তাস টানতে বাধ্য করুন।\n৫. যার হাতের সব তাস সবার আগে শেষ হবে, তিনিই আসরের বিজয়ী!</string>
+    <string name="rules_typography_title">বাংলা ইউনিকোড টাইপোগ্রাফি</string>
+    <string name="rules_typography_sample_serif">নোটো সেরিফ বাংলা — শিরোনাম ও আলপনা শৈলী</string>
+    <string name="rules_typography_sample_sans">হিন্দ শিলিগুড়ি ও নোটো স্যান্স বাংলা — স্পষ্ট পাঠযোগ্যতা</string>
+    <string name="rules_typography_digits">বাংলা সংখ্যা: ০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_title">পছন্দ ও সেটিংস</string>
+    <string name="settings_subtitle">ডেটাস্টোর দ্বারা সংরক্ষিত</string>
+    <string name="settings_audio_section">খেলা ও প্রতিক্রিয়া</string>
+    <string name="settings_sound_label">শব্দের প্রভাব</string>
+    <string name="settings_sound_desc">তাস খেলা ও চালের সময় মৃদু শব্দ</string>
+    <string name="settings_haptics_label">কম্পন প্রতিক্রিয়া</string>
+    <string name="settings_haptics_desc">তাস স্পর্শ করলে হালকা কম্পন</string>
+    <string name="settings_numerals_label">বাংলা সংখ্যা ব্যবহার</string>
+    <string name="settings_numerals_desc">স্কোর ও কার্ড নম্বর বাংলা অঙ্কে প্রদর্শন</string>
+    <string name="settings_theme_section">দৃশ্যমান শৈলী</string>
+    <string name="settings_dark_mode_label">গাঢ় মখমল থিম</string>
+    <string name="settings_dark_mode_desc">সন্ধ্যার আসরের জন্য গাঢ় সবুজ আবহ</string>
+    <string name="settings_dynamic_color_label">সিস্টেম ডায়নামিক রঙ</string>
+    <string name="settings_dynamic_color_desc">অ্যান্ড্রয়েড ১২+ অনুযায়ী সিস্টেম রঙ গ্রহণ</string>
+    <string name="settings_account_section">অ্যাকাউন্ট</string>
+    <string name="settings_signed_in_as">প্রবেশকৃত আইডি</string>
+    <string name="settings_about_section">গোপনীয়তা ও সংস্করণ তথ্য</string>
+    <string name="settings_version_label">সংস্করণ</string>
+    <string name="settings_privacy_button">গোপনীয়তা নীতি ও ডেটা সুরক্ষা</string>
+    <string name="settings_privacy_title">গোপনীয়তা নীতি ও ডেটা সুরক্ষা</string>
+    <string name="settings_privacy_body">১. সংগ্রহীত তথ্য: অনলাইন মাল্টিপ্লেয়ার ও লিডারবোর্ডের জন্য গুগল সাইন-ইন থেকে আপনার প্রদর্শিত নাম, ইমেইল ও ফায়ারবেস ইউআইডি সংরক্ষিত হয়।\n\n২. অফলাইন ও অতিথি মোড: অতিথি মোড এবং অফলাইন এআই ম্যাচের পছন্দ ও ইতিহাস কেবল আপনার ডিভাইসে (Room ও DataStore) সংরক্ষিত থাকে।\n\n৩. নিরাপত্তা ও ন্যায্যতা: সকল অনলাইন চাল ও ফলাফল ফায়ারবেস ক্লাউড ফাংশনের মাধ্যমে সার্ভার-যাচাইকৃত এবং প্রতিপক্ষের গোপন তাস সম্পূর্ণ এনক্রিপ্টেড/সুরক্ষিত।\n\n৪. কোনো বিজ্ঞাপন বা তৃতীয়-পক্ষের ট্র্যাকার নেই। অ্যাকাউন্ট বা ডেটা মুছে ফেলতে সেটিংস থেকে প্রস্থান করুন অথবা সাপোর্ট ইমেইলে অনুরোধ করুন।</string>
+    <string name="settings_privacy_close">বন্ধ করুন</string>
+
+    <!-- Player Profile Screen -->
+    <string name="profile_title">খেলোয়াড় প্রোফাইল</string>
+    <string name="profile_subtitle">আপনার অবতার, ক্লাউড পরিচয় ও স্থানীয় রেকর্ড</string>
+    <string name="profile_choose_avatar">অবতার পরিবর্তন করুন</string>
+    <string name="profile_cloud_stats">ক্লাউড প্রোফাইল (ফায়ারস্টোর)</string>
+    <string name="profile_local_history">সাম্প্রতিক খেলার ইতিহাস (রুম)</string>
+    <string name="profile_win_rate">জয়ের হার</string>
+
+    <!-- Result Screen -->
+    <string name="result_victory_title">অভিনন্দন! আপনি বিজয়ী!</string>
+    <string name="result_defeat_title">আসর সমাপ্ত হয়েছে!</string>
+    <string name="result_subtitle">চমৎকার চাল ও কৌশলের লড়াই</string>
+    <string name="result_scoreboard_title">চূড়ান্ত ফলাফল তালিকা</string>
+    <string name="result_play_again">আবার খেলুন</string>
+    <string name="result_back_to_menu">মূল মেনু</string>
+</resources>

@@ -1,0 +1,71 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "roomCodes": {
+      ".read": false,
+      ".write": false
+    },
+    "profiles": {
+      "$uid": {
+        ".read": "auth != null",
+        "displayName": {
+          ".write": "auth != null && auth.uid === $uid",
+          ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 40"
+        },
+        "avatarId": {
+          ".write": "auth != null && auth.uid === $uid",
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 5"
+        },
+        "stats": {
+          ".write": false
+        }
+      }
+    },
+    "leaderboard": {
+      ".read": "auth != null",
+      ".indexOn": ["totalPoints", "matchesWon"],
+      ".write": false
+    },
+    "rooms": {
+      "$roomId": {
+        "meta": {
+          ".read": "auth != null && (data.child('isPrivate').val() === false || root.child('rooms/' + $roomId + '/players/' + auth.uid).exists())",
+          ".write": false
+        },
+        "players": {
+          ".read": "auth != null && (root.child('rooms/' + $roomId + '/meta/isPrivate').val() === false || root.child('rooms/' + $roomId + '/players/' + auth.uid).exists())",
+          "$uid": {
+            "connected": {
+              ".write": "auth != null && auth.uid === $uid && root.child('rooms/' + $roomId + '/players/' + auth.uid).exists()",
+              ".validate": "newData.isBoolean()"
+            },
+            "lastSeenAt": {
+              ".write": "auth != null && auth.uid === $uid && root.child('rooms/' + $roomId + '/players/' + auth.uid).exists()",
+              ".validate": "newData.isNumber()"
+            }
+          }
+        },
+        "publicState": {
+          ".read": "auth != null && root.child('rooms/' + $roomId + '/players/' + auth.uid).exists()",
+          ".write": false
+        },
+        "playerHands": {
+          "$uid": {
+            ".read": "auth != null && auth.uid === $uid && root.child('rooms/' + $roomId + '/players/' + auth.uid).exists()",
+            ".write": false
+          }
+        },
+        "serverPrivate": {
+          ".read": false,
+          ".write": false
+        }
+      }
+    },
+    "publicRoomList": {
+      ".read": "auth != null",
+      ".indexOn": ["createdAt", "status"],
+      ".write": false
+    }
+  }
+}

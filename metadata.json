@@ -1,0 +1,6 @@
+{
+  "name": "রঙমহল",
+  "description": "রঙমহল — নকশা, রঙ আর চালের একটি মৌলিক বাংলা তাস খেলা।",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
